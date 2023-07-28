@@ -1,0 +1,89 @@
+/******************************************************************************
+
+                              Online C++ Compiler.
+               Code, Compile, Run and Debug C++ program online.
+Write your code in this editor and press "Run" button to compile and execute it.
+
+*******************************************************************************/
+
+#include <iostream>
+#include<stack>
+
+using namespace std;
+#define SIZE 10
+
+class Queue
+{ 
+    int data[SIZE];
+    int rear, front;
+    
+    public:
+     Queue()
+     {
+         front=rear = -1;
+     }
+    void insert(int element)
+    {
+     if (isFull()== 1)
+        cout<<"Queue is full";
+     else
+     {
+         data[++rear]=element;
+         if (front==-1)
+            front=0;
+     }
+    }
+    int remove()
+    {
+     if(isEmpty() == 1)
+        return-1;
+    else
+        return data[front++];
+    }
+    int isEmpty()   
+    {
+        if(rear ==front== -1 || front>rear)
+        {
+            cout<<"Queue is empty";
+            return 1;
+        }
+            
+        else{
+            return 0;
+    }
+    }
+      int isFull()   
+    {
+        if(rear == SIZE -1)
+            return 1;
+        else
+            return 0;
+    }
+    int peek()
+    {
+        if(isEmpty()==1)
+            return -1;
+        else
+            return data[front];
+        
+    }
+};
+
+int main()
+{
+    cout<<"static implementation of Queue";
+    Queue Q;
+    Q.insert(10);
+    Q.insert(55);
+    Q.insert(54);
+    cout<<"Queue is empty"<<Q.isEmpty();
+    
+    cout<<"Queue is empty"<<Q.isFull();
+    
+    cout<<"\nelement at  top position"<<Q.peek();
+    cout<<"\nelement remove from stack"<<Q.remove();
+    cout<<"\nelement remove from stack"<<Q.remove();
+    cout<<"\nelement remove from stack"<<Q.remove();
+    
+    return 0;
+}
